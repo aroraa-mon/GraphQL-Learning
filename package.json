@@ -1,0 +1,31 @@
+{
+  "name": "grapgql_learning",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon ./index.js --exec babel-node -e js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/arora04/GraphQL-Learning.git"
+  },
+  "author": "Abhishek Arora",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/arora04/GraphQL-Learning/issues"
+  },
+  "homepage": "https://github.com/arora04/GraphQL-Learning#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "express-graphql": "^0.9.0",
+    "graphql": "^15.0.0",
+    "nodemon": "^2.0.3"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-stage-0": "^6.24.1"
+  }
+}
