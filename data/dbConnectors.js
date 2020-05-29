@@ -2,7 +2,8 @@ import mongoose from 'mongoose';
 
 mongoose.Promise = global.Promise;
 mongoose.connect('mongodb://localhost/friends', {
-    useMongoClient: true
+    useNewUrlParser: true,
+    useUnifiedTopology: true
 });
 
 const friendSchema = new mongoose.Schema({

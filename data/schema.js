@@ -30,9 +30,9 @@ const schema = buildSchema(`
     input FriendInput {
         id: ID
         firstname: String!
-        lastname: String!
-        gender: Gender!
-        language: String!
+        lastname: String
+        gender: Gender
+        language: String
         age: Int
         emails: String
         contacts: [ContactInput]
@@ -45,6 +45,8 @@ const schema = buildSchema(`
 
     type Mutation {
         createFriend(input: FriendInput): Friend
+        updateFriend(input: FriendInput): Friend
+        deleteFriend(id: ID!): String
     }
 `)
 

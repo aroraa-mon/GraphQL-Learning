@@ -53,8 +53,23 @@ const resolver = {
                 else resolve(newFriend);
             })
         })
+    },
+    updateFriend: ({input}) => {
+        return new Promise((resolve, reject) => {
+            Friends.findOneAndUpdate({_id: input.id}, input, {new: true}, (err, friend) => {
+                if(err) reject(err);
+                else resolve(friend);
+            });
+        })
+    },
+    deleteFriend: ({id}) => {
+        return new Promise((resolve, reject) => {
+            Friends.remove({_id: id}, (err) => {
+                if(err) reject(err);
+                else resolve("Data deleted succfully");
+            });
+        })
     }
-
 };
 
 export default resolver;
