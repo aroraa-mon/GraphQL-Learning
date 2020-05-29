@@ -1,4 +1,6 @@
-class Friend {
+import mongoose from 'mongoose';
+import { Friends } from './dbConnectors';
+/* class Friend {
     constructor(id, {firstname, lastname, gender, language,  contacts, age}){
         this.id = id;
         this.firstname = firstname,
@@ -11,7 +13,7 @@ class Friend {
     }
 }
 
-const FriendDb = {};
+const FriendDb = {}; */
 
 const resolver = { 
     /* friend: () => {
@@ -30,9 +32,27 @@ const resolver = {
         return new Friend(id,FriendDb[id]);
     },
     createFriend: ({input})  =>  {
-        let id = "a1b2b3";
+        /* let id = "a1b2b3";
         FriendDb[id] = input;
-        return new Friend(id, input);
+        return new Friend(id, input); */
+        const newFriend = new Friends({
+            firstname: input.firstname,
+            lastname: input.lastname,
+            gender: input.gender,
+            language: input.language,
+            age: input.age,
+            emails: input.emails,
+            contacts: input.contacts,
+        });
+
+        newFriend.id = newFriend._id;
+
+        return new Promise((resolve, reject) => {
+            newFriend.save((err) => {
+                if(err) reject(err);
+                else resolve(newFriend);
+            })
+        })
     }
 
 };
