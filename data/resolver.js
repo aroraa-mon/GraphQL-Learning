@@ -31,6 +31,14 @@ const resolver = {
         console.log(FriendDb);
         return new Friend(id,FriendDb[id]);
     },
+    getOneFriend: ({id}) => {
+        return new Promise((resolve, reject) => {
+            Friends.findById(id, (err, friend) => {
+                if(err) reject(err);
+                else resolve(friend);
+            });
+        });
+    },
     createFriend: ({input})  =>  {
         /* let id = "a1b2b3";
         FriendDb[id] = input;
